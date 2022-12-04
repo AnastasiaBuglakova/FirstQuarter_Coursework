@@ -13,10 +13,11 @@ string[] FilterArray(string[] array)
         if(array[i].Length < 3) 
         {
             newArray[j] = array[i];
-
+            j=++;
         }
     
     }
+    return newArray;
 }
 
 
