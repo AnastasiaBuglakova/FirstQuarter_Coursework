@@ -1,11 +1,27 @@
-﻿string[] FilterArray(string[] array)
+﻿
+string[] FilterArray(string[] array)
 {
+    int n = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        if(array[i].Length < 3) n++;  
+    }
+    string[] newArray = new string[n];
+    for(int i = 0;  i < n; i ++)
+    {
+        int j = 0;
+        if(array[i].Length < 3) 
+        {
+            newArray[j] = array[i];
 
+        }
+    
+    }
 }
 
 
 
-string[] InputArray(int N)
+string[] InputArray()
 {
     Console.WriteLine("Please, enter size of array:");
     int N = Convert.ToInt32(Console.ReadLine());
@@ -17,3 +33,12 @@ string[] InputArray(int N)
     }
     return customArray;
 }
+void ShowArray(string[] array)
+{
+    for(int i = 0; i< array.Length; i++)
+    {
+    Console.Write(array[i] + " ");
+    }
+}
+string[] custArray = InputArray();
+ShowArray(custArray);
