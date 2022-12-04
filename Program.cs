@@ -4,23 +4,21 @@ string[] FilterArray(string[] array)
     int n = 0;
     for(int i = 0; i < array.Length; i++)
     {
-        if(array[i].Length < 3) n++;  
+        if(array[i].Length <= 3) n++;  
     }
+    Console.WriteLine(n);
     string[] newArray = new string[n];
     for(int i = 0;  i < n; i ++)
     {
         int j = 0;
-        if(array[i].Length < 3) 
+        if(array[i].Length <= 3) 
         {
             newArray[j] = array[i];
-            j=++;
+            j++;
         }
-    
     }
     return newArray;
 }
-
-
 
 string[] InputArray()
 {
@@ -34,6 +32,7 @@ string[] InputArray()
     }
     return customArray;
 }
+
 void ShowArray(string[] array)
 {
     for(int i = 0; i< array.Length; i++)
@@ -41,5 +40,9 @@ void ShowArray(string[] array)
     Console.Write(array[i] + " ");
     }
 }
+
 string[] custArray = InputArray();
 ShowArray(custArray);
+string[] newArray = FilterArray(custArray);
+Console.WriteLine();
+ShowArray(newArray);
