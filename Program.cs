@@ -8,9 +8,11 @@ string[] FilterArray(string[] array)
     }
     Console.WriteLine(n);
     string[] newArray = new string[n];
+    ShowArray(newArray);
+    int j = 0;
     for(int i = 0;  i < n; i ++)
     {
-        int j = 0;
+        
         if(array[i].Length <= 3) 
         {
             newArray[j] = array[i];
@@ -37,7 +39,7 @@ void ShowArray(string[] array)
 {
     for(int i = 0; i< array.Length; i++)
     {
-    Console.Write(array[i] + " ");
+    Console.Write(array[i] + "/");
     }
 }
 
