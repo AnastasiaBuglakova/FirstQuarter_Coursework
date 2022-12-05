@@ -1,19 +1,16 @@
-﻿
 string[] FilterArray(string[] array)
 {
     int n = 0;
     for(int i = 0; i < array.Length; i++)
     {
-        if(array[i].Length <= 3) n++;  
+        if(array[i].Length <4) n++;  
     }
-    Console.WriteLine(n);
     string[] newArray = new string[n];
-    ShowArray(newArray);
     int j = 0;
     for(int i = 0;  i < n; i ++)
     {
         
-        if(array[i].Length <= 3) 
+        if(array[i].Length <4) 
         {
             newArray[j] = array[i];
             j++;
@@ -25,9 +22,9 @@ string[] FilterArray(string[] array)
 string[] InputArray()
 {
     Console.WriteLine("Please, enter size of array:");
-    int N = Convert.ToInt32(Console.ReadLine());
-    string[] customArray = new string[N];
-    for(int i = 0; i < N; i++)
+    int n = Convert.ToInt32(Console.ReadLine());
+    string[] customArray = new string[n];
+    for(int i = 0; i < n; i++)
     {
         Console.WriteLine("Please, item # " + i + " of array:");
         customArray[i] = Console.ReadLine();
@@ -37,14 +34,22 @@ string[] InputArray()
 
 void ShowArray(string[] array)
 {
-    for(int i = 0; i< array.Length; i++)
+    if(array.Length == 0)Console.WriteLine("[]");
+    else
     {
-    Console.Write(array[i] + "/");
+        Console.Write("[");
+        for(int i = 0; i< array.Length; i++)
+            {
+            Console.Write($"\"{array[i]}\"");
+            if(i>=0 && i< array.Length - 1) Console.Write(", ");
+            }   
+        Console.Write("]");
     }
 }
 
 string[] custArray = InputArray();
 ShowArray(custArray);
-string[] newArray = FilterArray(custArray);
 Console.WriteLine();
+
+string[] newArray = FilterArray(custArray);
 ShowArray(newArray);
